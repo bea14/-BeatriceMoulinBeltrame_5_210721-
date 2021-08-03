@@ -132,7 +132,7 @@
                 </div>
                 <!--Bouton d'affichage des fenêtres modales-->
                 <div class="productcard-button text-center">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#fenetremodale1" id="addToCart" >
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fenetremodale1" id="addToCart" >
                         Ajouter au panier
                       </button>
                 </div>
@@ -145,14 +145,13 @@
                 <div class="modal-content">
                     <div class="modal-header">
                     <h5 class="modal-title" id="fenetremodale1title">Article ajouté au panier</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer">
-                    </button>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Fermer">&times;</button>
                     </div>
                     <div class="modal-body">
                         Votre article a bien été ajouté au panier
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="window.location.href = '#';">Poursuivre mes achats</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '#';">Poursuivre mes achats</button>
                         <button type="button" class="btn btn-secondary" onclick="window.location.href = 'cart.html';">Aller au panier</button>
                     </div>
                 </div>

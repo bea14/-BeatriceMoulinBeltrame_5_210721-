@@ -1,0 +1,80 @@
+// Fichier modal.scss
+.cModalIframeConteneur {
+   overflow: hidden;
+   padding-top: 56.25%;
+   position: relative;
+   width: 100%;
+}
+
+.cModalIframeConteneur iframe {
+   border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;
+}
+
+.cModalPlein {
+   min-width: 100%;
+   margin: 0;
+}
+
+.cModalPlein .modal-header {
+   border-radius: 0px;
+}
+
+.cModalPlein .modal-content {
+   min-height: 100vh;
+   border-radius: 0;
+}
+
+.cModalPlein .modal-footer {
+   border-radius: 0px;
+}
+
+.cModalMedium {
+   min-width: 90%;
+   margin: 0 auto;
+}
+
+.cModalMedium .modal-content {
+   min-height: 80vh;
+   border-radius: 0;
+}
+
+.cModalSansEntete .modal-header {
+   display:none;
+}
+
+.cModalSansEntete .modal-footer {
+   display:none;
+}
+
+.cModalRouge .modal-header {
+   border-radius: 0px;
+   background-color: $modal-backgroundcolor;
+   color: $white;
+}
+
+.cModalRouge .modal-footer {
+   border-radius: 0px;
+   background-color: $modal-backgroundcolor;
+   color: $white;
+}
+
+.cModalInfo .modal-header {
+   background-color: $modalInfo-backgroundcolor;
+   color: $white;
+   border:none;
+}
+
+.cModalInfo .modal-body {
+   background-color: $modalInfo-backgroundcolor;
+   color: $white;
+}
+.cModalInfo .modal-footer {
+   background-color: $modalInfo-backgroundcolor;
+   color: $white;
+   border:none;
+}

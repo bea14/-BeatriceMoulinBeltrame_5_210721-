@@ -1,0 +1,29 @@
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+      @return $number / ($number * 0 + 1);
+    }  
+    @return $number;
+  }
+
+/// Transform in rem
+/// @param {Number} $size - Number to transform
+/// @param {Number} $base - font size base
+/// @return {Number} - rem value
+@function to-rem ($size,$base){
+  $basewithoutunit: strip-unit($base);
+  $sizewithoutunit: strip-unit($size);
+  @return 1rem * $size/$base;
+}
+
+/// Transform in em
+/// @param {Number} $size - Number to transform
+/// @param {Number} $base - font size base
+/// @return {Number} - em value
+@function to-em ($size,$base){
+  $basewithoutunit: strip-unit($base);
+  $sizewithoutunit: strip-unit($size);
+  @return 1em * $size/$base;
+}

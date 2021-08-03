@@ -1,0 +1,122 @@
+//footer.scss
+#footer {
+  line-height: 2em;
+  padding: 38px 25px 20px 25px;
+  color: $black;
+  div a {
+    display: block;
+  }
+  div a:first-child {
+    margin-top: 0;
+  }
+  div a:last-child {
+      margin-bottom: 0;
+  }
+}
+
+/*Part 1*/
+#part1 {
+  margin: 0 auto;
+  padding: 1em;
+  background-color: $secondary-color;
+  border-radius: $radius-large;
+}
+
+#companyinfo, #explore, #visit, #subscrive, #legal {
+  width: 100%;
+  border-bottom: 1px solid $black;
+}
+
+#txt0, #txt1, #txt2, #txt3, #txt4, #txt5 {
+  font-family: $title-font;
+  font-weight: $weight-bold;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+
+/*Company Info*/
+.sitelink {
+  font-size: $font-size-title;
+  font-family: $title-font;
+  color: $footer-title-color;
+}
+
+.sitelink:hover {
+  color: $footer-title-color-hover;
+}
+/*End of company info*/
+
+/*Explore*/
+.link {
+  color: $black;
+  background-color: transparent;
+}
+
+.link:hover,
+.link1:hover {
+  color: $footer-title-color-hover
+}
+/*End of explore*/
+
+/*Visit*/
+.text {
+  color: $black;
+}
+/*End of viist*/
+
+/*Legal*/
+.link1 {
+  color: $black;
+  background-color: transparent;
+}
+/*End og legal*/
+
+/*Subscribe*/
+#email {
+  color: $black;
+}
+
+#txt5 {
+  position: relative;
+  top: 0px
+}
+
+.social {
+  margin-right: 10px;
+  color: $black;
+  cursor: pointer
+}
+
+.fa-facebook-square:hover {
+  color: #3B579D
+}
+
+.fa-linkedin:hover {
+  color: #007BB6
+}
+
+.fa-twitter-square:hover {
+  color: #2CAAE1
+}
+/*End of subscribe*/
+/*End of part1*/
+
+/*Part 2 - Copyright*/
+#part2 {
+  max-height: 50px;
+  background-color: $primary-color;
+}
+
+.material-icons {
+  position: relative;
+  top: 3px
+}
+/*End of part2*/
+
+/*Responsive*/
+@media screen and (min-width:991px) {
+  #companyinfo, #explore, #visit, #subscrive, #legal {
+    width: 20%;
+    border-bottom: none;
+  }
+}

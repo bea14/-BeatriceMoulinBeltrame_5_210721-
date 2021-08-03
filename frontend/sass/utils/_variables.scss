@@ -1,0 +1,74 @@
+// variables.scss
+
+// Palette de couleurs
+$white: #ffffff;
+$black: #000000;
+$primary-color: #9cc19b;
+$secondary-color: #aed6ad;
+$tertiary-color: #c5f2c4;
+$header-color: #333333;
+$header-select-color: #efefef;
+$footer-title-color: #333333; 
+$footer-title-color-hover: #0800ff;
+$icon-color: #7e7e7e;
+$dark-color: #353535;
+$search-background-color: #eaeaea;
+$shadow-color: rgba(0, 0, 0, 0.25);
+$shadow-color-hover:rgba(0, 0, 0, 0.5);
+$button-color: #0d6efd;
+$button-shadow-color: rgba(163,163,163,0.2);
+$button-shadow-hover-color: rgba(163,163,163,0.6);
+
+// Links
+$link-decoration: underline;
+$link-decoration-hover: underline;
+$link-decoration-none: none;
+
+// Border radius
+$radius-none: 0;
+$radius-small: 0.5rem;
+$radius-medium: 1rem;
+$radius-large: 2rem;
+$radius-xlarge: 6rem;
+$radius-circle: 50%;
+
+// Divers
+$hidden: none;
+
+// Cards
+$card-bg: $white;
+$card-color: #585858;
+$card-description-color: #252525;
+$card-border-radius: 1em;
+$card-spacer-y: 1em;
+$card-spacer-x: 1em;
+
+//Jumbotron
+$jumbotron-padding: 0.5em;
+$jumbotron-bg: transparent;
+$border-radius-lg: 1rem;
+$jumbotron-color: $black;
+$jumbotron-heading-color: $black;
+$jumbotron-heading-font-size: 2em;
+$jumbotron-font-size: 1.25em;
+$grid-gutter-width: 0.5em;
+
+//modal
+$modal-backgroundcolor: #dc3545;
+$modalInfo-backgroundcolor:#17a2b8;
+
+//breadcrumb
+$breadcrumb-active-color: #242D35;
+
+//stars
+$stars-color: #FFD900;
+
+//breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);

@@ -1,0 +1,41 @@
+// Fichier main.scss
+.main {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+blockquote .author {
+  font-style: italic;
+}
+
+blockquote::before {
+  content: open-quote;
+  font-size: 2em;
+}
+
+blockquote::after {
+  content: close-quote;
+  font-size: 2em;
+}
+
+.about {
+  background-color: $white;
+  border-radius: $radius-large;
+  h2 {
+    font-family: $title-font;
+  font-weight: $weight-bold;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  }
+}
+
+.catalogue {
+  background-color: $secondary-color;
+  border-radius: $radius-large;
+  h2 {
+    font-family: $title-font;
+  font-weight: $weight-bold;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  }
+}

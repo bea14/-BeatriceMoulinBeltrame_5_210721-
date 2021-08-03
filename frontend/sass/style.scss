@@ -1,0 +1,26 @@
+// Fichier main.scss
+
+@import "https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap";
+@import url('https://fonts.googleapis.com/css2?family=Sniglet&display=swap');
+@import 'utils/variables';
+@import 'base/typography';
+@import 'utils/functions';
+@import 'utils/mixins';
+
+@import 'base/reset';
+@import 'base/base';
+
+@import 'layout/header';
+@import 'layout/footer';
+
+@import 'components/buttons';
+@import 'components/jumbotron';
+@import 'components/cards';
+@import 'components/modal';
+
+@import 'pages/cart';
+@import 'pages/index';
+@import 'pages/contact';
+@import 'pages/products';
+@import 'pages/login';
+

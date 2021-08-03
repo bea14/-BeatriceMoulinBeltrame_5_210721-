@@ -1,0 +1,26 @@
+// typography.scss
+
+//Font Variables
+$text-font: "Roboto", sans-serif;
+$title-font: 'Sniglet', cursive;
+$subtitle-font: 'Open Sans', sans-serif;
+
+//Font sizes
+$font-size-html: 100%;
+$font-size-base-px: 16px;
+$font-size-base: 1rem;
+$font-size-title: 1.5rem;
+$font-size-card-title: 1.2rem;
+$font-size-description: 0.6rem;
+$font-size-description-product: 1rem;
+$font-size-price: 0.8rem;
+$font-size-price-product: 1.8rem;
+$font-size-title-product: 2rem;
+
+// Font weights
+$weight-lighter: 100;
+$weight-light: 200;
+$weight-book: 300;
+$weight-regular: 400;
+$weight-medium: 500;
+$weight-bold: 700;

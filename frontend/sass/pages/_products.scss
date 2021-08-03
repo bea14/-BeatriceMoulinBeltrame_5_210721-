@@ -1,0 +1,52 @@
+//products.scss
+.breadcrumb-item.active {
+  color: $breadcrumb-active-color;
+}
+
+#main-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.productcard {
+  max-width: 1000px;
+  width: 100%;
+  padding: 1rem;
+  background-color: $secondary-color;
+  color: $black;
+  box-shadow: 0 4px 8px 0 $shadow-color, 0 6px 20px 0 $shadow-color;
+  border-radius: $radius-medium;
+}
+
+.info {
+  padding: 1em 0;
+}
+
+.info .title h1 {
+  font-size: 1.5em;
+}
+
+#addFavorite .far, .fa {
+  font-size: 1.5em;
+}
+
+@media screen and (min-width: 768px) {
+  .productcard-card img {
+    width: 80%;
+  }
+  .productcard-card .text-center {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.checked {
+  color: $stars-color;
+  margin-right: 1vh
+}
+
+.fa-star-half-full {
+  color: $stars-color;
+}

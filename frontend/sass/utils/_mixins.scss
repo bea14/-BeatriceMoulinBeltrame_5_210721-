@@ -1,0 +1,10 @@
+//mixins.scss
+@mixin bp($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+      $value: map-get($breakpoints, $breakpoint);
+       
+      @media screen and (min-width: $value) {
+          @content;
+      }
+  }
+}

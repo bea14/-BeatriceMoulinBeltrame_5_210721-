@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <!-- Partie titre et description -->
+        <title>OrinocoCamera-Panier</title>
+        <meta name="description" content="Oricamera, notre nouvelle boutique en ligne spécialisée dans les appareils photos vintages">
+        <meta name="author" content="Béatrice Moulin Beltrame">    
+        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+        <!-- Librairie et framework -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">   
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <!-- Feuille de style -->
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    
+    <body>
+        <!-- HEADER -->
+        <header>
+            <div class="container-fluid">
+                <div class="row align-items-center justify-content-around">
+                    <div class="">
+                        <nav class="navbar navbar-expand-lg navbar-light">
+                            <div class="container-fluid">
+                                <a href="index.html" class="navbar-brand order-1"><img src="images/logo.png" alt="logo" class="img-fluid" /></a>
+                                <button class="navbar-toggler order-4 order-md-2" type="button" data-toggle="collapse" data-target="#menuprincipal" aria-controls="menuprincipal" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse order-5 order-md-3" id="menuprincipal">
+                                    <ul class="navbar-nav mr-auto">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="index.html">Accueil</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="index.html#about">A propos</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="index.html#catalogue">Nos produits</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="contact.html">Contactez-nous</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+        
+                    <div class="order-6 order-md-4">
+                        <div class="header-search mt-2">
+                            <div class="search-form">
+                                <form method="get">
+                                    <div class="input-group m-auto"> 
+                                        <label class="d-none" for="search">Recherche</label>
+                                        <input type="text" name="search" id="search" class="form-control" placeholder="Votre recherche" />
+                                        <div class="input-group-addon">
+                                            <button type="submit">  
+                                                <span><img src="images/outline_search_black_24dp.png" alt="bouton rechercher"></span>
+                                                <!--<i class="fas fa-search"></i>-->
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="cart order-3 order-md-5">
+                        <div class="cart">
+                            <a href="cart.html">
+                                <!--<span class="number">10</span>-->
+                                <span><img src="images/outline_shopping_cart_white_24dp.png" alt="icone panier"></span>
+                                <!--<img class="img-fluid" src="images/cart.png" alt="cart" />-->
+                                <span id="navbarBadge" class="badge" data-badge-caption=""></span>
+                                <!--<span>Panier</span>-->
+                                <!--<ul id="cart-dropdown" class="cart-dropdown dropdown-menu pull-right">
+                                    <li id="empty-cart-msg"><a>Votre panier est vide</a></li>
+                                    <li class="divider hidden"></li>
+                                    <li class="go-to-cart hidden">
+                                      <form method="get" action="panier.html">
+                                        <button class="btn btn-primary center-block">Voir le panier</button>
+                                      </form>
+                                    </li>
+                                </ul>-->
+                            </a>
+                        </div>
+                    </div>
+                    <div  class="login order-2 order-md-6">        
+                        <div class="login">
+                            <a href="login.html">                                
+                                <span><img src="images/outline_person_white_24dp.png" alt="icone connexion"></span>
+                                <!--<span class="hidden-sm-down hidden-xs">Connexion</span>-->
+                                <!--<button" class="btn btn-light mt-2 btn-sm">Connexion</button>-->
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--FIN HEADER -->
+
+
+    <main class="container" id="main-cart">
+        <div class="col m-auto">
+            <h1 class="text-center cart-title mt-2">Panier</h1>
+            <!-- Panier -->
+                <!-- Label des colonnes du panier -->
+            <div class="border rounded shadow-lg my-3 p-4 text-center col table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                      <tr>
+                        <th>Image</th>
+                        <th style="display: none;">Id</th>
+                        <th>Produit</th>                        
+                        <th>Lentille</th>
+                        <th>Quantité</th>
+                        <th>Prix</th>
+                        <th>Total</th>
+                        <th>Suppression</th>
+                      </tr>
+                    </thead>        
+                    <tbody id="productsList">
+                      <template id="productTemplate">
+                        <tr>
+                            <td>
+                                <img id="productImage" class="img-fluid img-thumbnail" src="" alt="">
+                            </td>
+                            <td id="productID" style="display: none;">Id</td>
+                            <td id="productName" class="text-center">Name</td>
+                            <td id="productLense" class="text-center">Lentille</td>
+                            <td class="p-0 text-center">
+                                <form class="flex">
+                                <label class="d-none">Quantité:</label>
+                                <select
+                                    id="productQuantity"
+                                    class="z-10 block w-full py-1 pl-3 pr-10 text-base text-center border border-indigo-200 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    name="quantity"
+                                >
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                                </form>
+                            </td>
+                            <td id="productPrice" class="p-0 text-center">x€</td>
+                            <td id="productTotalPrice" class="p-0 text-center">x€</td>
+                            <td class="rubbish">
+                                <img  id="clearItem" class="img-fluid" src="images/rubbish.png" alt="poubelle" /></td>
+                        </tr>
+                      </template>
+                      <tr class="bg-light">
+                        <td colspan="5" class="py-2 text-center fw-bold">Total</td>
+                        <td class="text-center fw-bold" id="totalPrice">x€</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                </table>     
+                <!--Boutons de validation et d'effacement du panier-->
+                <div class="text-right">
+                    <button class="btn btn-primary my-2" id="confirmPurchase" 
+                    onclick="document.getElementById('Form').style.display='inline';"> Confirmer le panier</button> 
+                    <!--<button class="btn btn-primary my-2" id="continueShoppig"> <a href = "index.html#catalogue"></a>Poursuivre mes achats</button>-->
+                    <a class="clickMe" href="index.html#catalogue">Poursuivre mes achats</a>
+                    <button class="btn btn-primary my-2 clear-cart-btn" id="clearCart"> Vider le panier</button>
+                </div>   
+                <div id="emptyCart" style="display:none;">Votre panier est vide, veuillez retourner sur notre catalogue pour selectionner un article</div>
+            </div>
+        </div>
+
+        <!--formulaire de commande-->
+        <form id="Form" style="display:none;">
+            <h2 class="validation-title text-center">Merci de compléter le formulaire ci-dessous</h2>
+            <div class="needs-validation">
+                <div class="row justify-content-center">                  
+                    <!-- 2 column grid layout with text inputs for the first and last names -->                        
+                    <!-- First Name input -->
+                    <div class="col-md-6 text-center mt-2">
+                        <label class="form-label" for="nom">Nom</label>
+                        <input type="text" id="nom" class="form-control" placeholder="Indiquez votre nom" />
+                    </div>                       
+                    <!-- Last Name input -->
+                    <div class="col-md-6 text-center mt-2">
+                        <label class="form-label" for="prenom">Prénom</label>
+                        <input type="text" id="prenom" class="form-control" placeholder="Indiquez votre prénom" />
+                    </div>
+                </div>
+                <div class="row justify-content-center">      
+                    <!-- Address input -->
+                    <div class="col-md-6 text-center mt-2">
+                        <label class="form-label" for="address">Adresse</label>
+                        <input type="text" id="address" class="form-control" placeholder="Indiquez n° et rue"/>
+                    </div> 
+                </div>
+                <div class="row justify-content-center">                      
+                    <!-- CP input -->
+                    <div class="col-md-6 text-center mt-2">
+                        <label class="form-label" for="zipcode">Code Postal</label>
+                        <input type="text" id="zipcode" class="form-control" placeholder="Indiquez votre CP" />
+                    </div>
+                    <!-- City input -->
+                    <div class="col-md-6 text-center mt-2">
+                        <label class="form-label" for="city">Ville</label>
+                        <input type="text" id="city" class="form-control" placeholder="Indiquez votre Ville" />
+                    </div>
+                </div>
+                <div class="row justify-content-center">                  
+                    <!-- 2 column grid layout with text inputs for email and telephone number -->
+                    <!-- Email input -->
+                    <div class="col-md-6 text-center text-center mt-2">
+                        <label class="form-label" for="email">Email</label>
+                        <input type="email" id="email" class="form-control"  placeholder="Indiquez votre email"/>
+                    </div>                            
+                </div>
+            </div>
+             <!--Bouton de validation de la commande-->
+             <div class="row justify-content-center">           
+                <button type="button" class="btn btn-primary text-center col-5 m-2" id="btn-validation" > Valider la commande</button>
+            </div>
+        </form>      
+        <!--Fenetre modale-->
+        <!--<div class="modal fade" id="fenetremodaleValid" tabindex="-1" aria-labelledby="fenetremodaleValidtitle" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="fenetremodaleValidtitle">Votre commande est validée !</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer">
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        Votre commande n° <span id="idCommande">IdCommande</span> a bien été prise en compte.
+                        Nous vous remercions pour votre achat d'un montant total de <span id="priceOrder"></span>&nbsp;€.<br />
+                    </div>
+                    <div class="modal-footer">
+                        <a href="index.html#catalogue"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retourner à la boutique</button></a>
+                        <a href="index.html"><button type="button" class="btn btn-secondary">Fermer la fenêtre</button></a>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </main>
+
+
+    <!-- Footer-->
+    <footer id="footer" class="footer  col-12 mb-3">
+        <div id="container">
+            <div id="part1" class="d-flex flex-column flex-lg-row justify-content-lg-between align-items-center align-items-lg-start">
+                <div id="companyinfo" class="pb-2"> 
+                    <a id="txt0" class="sitelink text-center" href="index.html">ORINOCO-CAMERA</a>
+                    <p class="title text-center">Boutique 100% en ligne</p>
+                    <p class="detail text-center">Appareils photos vintage et lentilles de qualité</p>
+                </div>
+                <div id="explore" class="pb-2 text-center">
+                    <h3 id="txt1" class="text-center">Explorer</h3> 
+                    <a class="link" href="index.html">Accueil</a> 
+                    <a class="link" href="index.html#about">A propos</a> 
+                    <a class="link" href="index.html#catalogue">Produits</a> 
+                    <a class="link" href="contact.html">Contact</a>
+                </div>
+                <div id="visit" class="pb-2 text-center">
+                    <h3 id="txt2" class="text-center">Nous contacter</h3>
+                    <p class="text">Orinoco-Camera </p>                    
+                    <p class="text">Mail: contact@orinoco-camera.com </p>
+                    <p class="text">Téléphone: (33) 01-02-03-04-05 </p>
+                    <p class="text">Fax: (33) 02-03-04-05-06 </p>
+                </div>
+                <div id="legal" class="pb-2 text-center">
+                    <h3 id="txt3" class="text-center">Mentions légales</h3> 
+                    <a class="link1" href="#">CGV</a> 
+                    <a class="link1" href="#">Conditions d'utilisation</a>
+                </div>
+                <div id="subscribe" class="pb-2 text-center">
+                    <h3 id="txt4" class="text-center">Inscription newsletter</h3>
+                    <form> 
+                        <label class="d-none" for="mail">Email:</label>
+                        <input id="mail" type="email" placeholder="Votre email"> 
+                    </form> 
+                    <a class="btn btn-primary">Vous inscrire</a>
+                    <h3 id="txt5" class="text-center mt-2 py-2">Restons connectés !</h3>
+                    <div class="text-center">
+                        <i class="fab fa-facebook-square social fa-2x" aria-hidden="true"></i> 
+                        <i class="fab fa-linkedin social fa-2x" aria-hidden="true"></i> 
+                        <i class="fab fa-twitter-square social fa-2x" aria-hidden="true"></i>
+                    </div> 
+                    
+                </div>
+            </div>
+            <div id="part2" class="text-center">
+                <p id="txt6">
+                    <i class="material-icons tiny"> copyright</i>
+                    Copyright 2021 Orinoco-camera - Tous droits réservés
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- Fin Footer-->
+    <!-- Bootstrap et autres fichiers JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+ 
+    <!-- Script JS correspondant à la page -->
+    <script src="js/scripts.js"></script>
+    <script src='js/cart.js'></script>
+
+</body>
+
+</html>

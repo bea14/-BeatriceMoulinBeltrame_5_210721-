@@ -23,80 +23,62 @@
         <header>
             <div class="container-fluid">
                 <div class="row align-items-center justify-content-around">
-                    <div class="">
+                    <div class="container-fluid col-10">
                         <nav class="navbar navbar-expand-lg navbar-light">
-                            <div class="container-fluid">
-                                <a href="index.html" class="navbar-brand order-1"><img src="images/logo.png" alt="logo" class="img-fluid" /></a>
-                                <button class="navbar-toggler order-4 order-md-2" type="button" data-toggle="collapse" data-target="#menuprincipal" aria-controls="menuprincipal" aria-expanded="false" aria-label="Toggle navigation">
-                                    <span class="navbar-toggler-icon"></span>
-                                </button>
-                                <div class="collapse navbar-collapse order-5 order-md-3" id="menuprincipal">
-                                    <ul class="navbar-nav mr-auto">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="index.html">Accueil</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="index.html#about">A propos</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="index.html#catalogue">Nos produits</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="contact.html">Contactez-nous</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <a href="index.html" class="navbar-brand" aria-label="Retour à l'accueil"><img src="images/logo.png" alt="logo" class="img-fluid" /></a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuprincipal" aria-controls="menuprincipal" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="menuprincipal">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.html" aria-label="Retour à l'accueil">Accueil</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.html#about" aria-label="A propos">A propos</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.html#catalogue" aria-label="Nos produits">Nos produits</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="contact.html" aria-label="Contactez-nous">Contactez-nous</a>
+                                    </li>                                       
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" aria-label="Nos autres boutiques">Nos autres boutiques<span class="caret"></span></a>
+                                        <ul class="dropdown-menu liste-deroulante">
+                                            <li><a  class="nav-link" href="ourson.html" aria-label="Lien vers la page Orinoco-Ours">Oursons</a></li>
+                                            <li><a  class="nav-link" href="meubles.html" aria-label="Lien vers la page Orinoco-Meubles">Meubles</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="login.html" aria-label="Page de connexion">Connexion</a>
+                                    </li>
+                                </ul>
                             </div>
                         </nav>
+                    </div> 
+                    <div class="cart">
+                        <a href="cart.html" aria-label="Votre panier">
+                            <span><img src="images/outline_shopping_cart_white_24dp.png" alt="icone panier"></span>
+                            <span id="navbarBadge" class="badge" data-badge-caption=""></span>
+                        </a>
                     </div>
-        
-                    <div class="order-6 order-md-4">
-                        <div class="header-search mt-2">
-                            <div class="search-form">
-                                <form method="get">
-                                    <div class="input-group m-auto"> 
-                                        <label class="d-none" for="search">Recherche</label>
-                                        <input type="text" name="search" id="search" class="form-control" placeholder="Votre recherche" />
-                                        <div class="input-group-addon">
-                                            <button type="submit">  
-                                                <span><img src="images/outline_search_black_24dp.png" alt="bouton rechercher"></span>
-                                                <!--<i class="fas fa-search"></i>-->
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
+                </div>
+                <div class="header-search col-md-6 m-auto">
+                    <div class="search-form">
+                        <form method="get">
+                            <div class="input-group m-auto"> 
+                                <label class="d-none" for="search">Recherche</label>
+                                <input type="text" name="search" id="search" class="form-control" placeholder="Votre recherche" />
+                                <div class="input-group-addon align-self-center">
+                                    <button type="submit">  
+                                        <span><img src="images/outline_search_black_24dp.png" alt="bouton rechercher"></span>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-        
-                    <div class="cart order-3 order-md-5">
-                        <div class="cart">
-                            <a href="cart.html">
-                                <!--<span class="number">10</span>-->
-                                <span><img src="images/outline_shopping_cart_white_24dp.png" alt="icone panier"></span>
-                                <!--<img class="img-fluid" src="images/cart.png" alt="cart" />-->
-                                <span id="navbarBadge" class="badge" data-badge-caption=""></span>
-                                <!--<span>Panier</span>-->
-                                <!--<ul id="cart-dropdown" class="cart-dropdown dropdown-menu pull-right">
-                                    <li id="empty-cart-msg"><a>Votre panier est vide</a></li>
-                                    <li class="divider hidden"></li>
-                                    <li class="go-to-cart hidden">
-                                      <form method="get" action="panier.html">
-                                        <button class="btn btn-primary center-block">Voir le panier</button>
-                                      </form>
-                                    </li>
-                                </ul>-->
-                            </a>
-                        </div>
-                    </div>
-                    <div  class="login order-2 order-md-6">        
-                        <div class="login">
-                            <a href="login.html">                                
-                                <span><img src="images/outline_person_white_24dp.png" alt="icone connexion"></span>
-                                <!--<span class="hidden-sm-down hidden-xs">Connexion</span>-->
-                                <!--<button" class="btn btn-light mt-2 btn-sm">Connexion</button>-->
-                            </a>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -258,16 +240,16 @@
         <div id="container">
             <div id="part1" class="d-flex flex-column flex-lg-row justify-content-lg-between align-items-center align-items-lg-start">
                 <div id="companyinfo" class="pb-2"> 
-                    <a id="txt0" class="sitelink text-center" href="index.html">ORINOCO-CAMERA</a>
+                    <a id="txt0" class="sitelink text-center" href="index.html" aria-label="Retour à l'accueil">ORINOCO-CAMERA</a>
                     <p class="title text-center">Boutique 100% en ligne</p>
                     <p class="detail text-center">Appareils photos vintage et lentilles de qualité</p>
                 </div>
                 <div id="explore" class="pb-2 text-center">
                     <h3 id="txt1" class="text-center">Explorer</h3> 
-                    <a class="link" href="index.html">Accueil</a> 
-                    <a class="link" href="index.html#about">A propos</a> 
-                    <a class="link" href="index.html#catalogue">Produits</a> 
-                    <a class="link" href="contact.html">Contact</a>
+                    <a class="link" href="index.html" aria-label="Retour à l'accueil">Accueil</a> 
+                    <a class="link" href="index.html#about" aria-label="A propos de nous">A propos</a> 
+                    <a class="link" href="index.html#catalogue" aria-label="Lien vers notre catalogue">Produits</a> 
+                    <a class="link" href="contact.html" aria-label="Contactez-nous">Contact</a>
                 </div>
                 <div id="visit" class="pb-2 text-center">
                     <h3 id="txt2" class="text-center">Nous contacter</h3>
@@ -278,8 +260,8 @@
                 </div>
                 <div id="legal" class="pb-2 text-center">
                     <h3 id="txt3" class="text-center">Mentions légales</h3> 
-                    <a class="link1" href="#">CGV</a> 
-                    <a class="link1" href="#">Conditions d'utilisation</a>
+                    <a class="link1" href="#" aria-label="Lien vers les CGV">CGV</a> 
+                    <a class="link1" href="#" aria-label="Lien vers les conditions d'utilisation">Conditions d'utilisation</a>
                 </div>
                 <div id="subscribe" class="pb-2 text-center">
                     <h3 id="txt4" class="text-center">Inscription newsletter</h3>
@@ -300,7 +282,7 @@
             <div id="part2" class="text-center">
                 <p id="txt6">
                     <i class="material-icons tiny"> copyright</i>
-                    Copyright 2021 Orinoco-camera - Tous droits réservés
+                    Copyright 2021 Orinoco - Tous droits réservés
                 </p>
             </div>
         </div>

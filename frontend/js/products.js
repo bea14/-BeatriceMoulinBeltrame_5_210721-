@@ -25,7 +25,7 @@ function displayPage(product) {
   // Complete page
   document.getElementById('productImage').src = product.imageUrl
   document.getElementById('productName').textContent = product.name
-  document.getElementById('productPrice').textContent = `${product.price / 100}.00 €`
+  document.getElementById('productPrice').textContent = convertPrice(product.price)
   document.getElementById('productDescription').textContent = product.description
   updateFavoris()  
   updateNavBar()

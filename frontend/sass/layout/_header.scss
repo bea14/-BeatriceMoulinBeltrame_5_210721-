@@ -8,6 +8,11 @@ header {
     }
 }
 
+.liste-deroulante {
+
+    background-color: $secondary-color;
+}
+
 header::before, header::after {
         min-height: 20px;
 }
@@ -30,10 +35,6 @@ header .navbar-brand {
 /* Header Search Bar */
 .header-search input[type="text"] {
     border: none;
-}
-
-.header-search .input-group {
-    width: 50%;
 }
 
 .header-search .input-group-addon button {
@@ -71,16 +72,10 @@ header .navbar-brand {
 
 
 /* Header cart CSS */
-header .cart {
-    position: absolute;
-    right: 50px;
-    top: 20px
-}
-
 header .cart a {
     color: $white;
     text-decoration: none;
-    width: 30px;
+    /*width: 30px;*/
     margin-left: 10px;
 }
 
@@ -88,8 +83,8 @@ header .cart a span.badge {
     position: relative;
     color: $header-color;
     font-weight: $weight-bold;
-    left: -40px;
-    top: -20px;
+    left: -25px;
+    top: -10px;
     font-size: 14px;
 }
 
@@ -129,18 +124,37 @@ header .login a img {
     header .navbar-brand img{
         max-width: 50px;
     }
+    header .cart {
+        position: absolute;
+       /* right: 80px;*/
+        top: 30px;
+    }  
 }
 
-@media screen and (max-width: 767px) {    
-    .header-search .input-group {
-        width: 100%;
+@media screen and (min-width: 375px) and (max-width: 767px) {    
+    header .navbar-brand img{
+        max-width: 50px;
     }
+    header .cart {
+        position: absolute;
+       /* right: 90px;*/
+        top: 40px;
+    }  
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {    
+    header .cart {
+        position: absolute;
+        /*right: 120px;*/
+        top: 50px;
+    }  
 }
 
 @media screen and (min-width: 991px) {    
     header .navbar-brand {
         max-width: 80px;
-    }    
+    }  
+    
     
     header .cart a img {
         width: 30px;

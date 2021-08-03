@@ -6,7 +6,7 @@
 
 //récupération de tous les products au format json
 async function getProducts() {
-  return fetch("http://localhost:3000/api/cameras")
+  return fetch("http://localhost:3000/api/furniture")
   .then((httpBodyResponse) => httpBodyResponse.json())
   .then((products) => products)
   .catch((error) => {
@@ -31,9 +31,9 @@ function displayProduct(product) {
   // Complete template
   cloneElt.getElementById('productImage').src = product.imageUrl
   cloneElt.getElementById('productName').textContent = product.name
-  cloneElt.getElementById('productPrice').textContent = convertPrice(product.price )
+  cloneElt.getElementById('productPrice').textContent = `${product.price / 100}.00 €`
   cloneElt.getElementById('productDescription').textContent = product.description
-  cloneElt.getElementById('productLink').href = `products.html?id=${product._id}`
+  //cloneElt.getElementById('productLink').href = `products.html?id=${product._id}`
   // Display template
   document.getElementById('cards').appendChild(cloneElt)
 }

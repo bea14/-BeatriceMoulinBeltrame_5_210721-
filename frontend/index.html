@@ -5,8 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <!-- Partie titre et description -->
-        <title>Orinoco-Camera</title>
-        <meta name="description" content="Oricamera, notre nouvelle boutique en ligne spécialisée dans les appareils photos vintages">
+        <title>Orinoco|Accueil</title>
+        <meta name="description" content="Orinoco, notre nouvelle boutique en ligne spécialisée dans les appareils photos vintages, les ours en peluche et les meubles en chênne. Venez visiter nos différentes boutiques.">
         <meta name="author" content="Béatrice Moulin Beltrame">    
         <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
         <!-- Librairie et framework -->
@@ -20,9 +20,9 @@
     
     <body>
         <!-- HEADER -->
-        <header>
+        <header class="px-2">
             <div class="container-fluid">
-                <div class="row align-items-center justify-content-around">
+                <div class="row align-items-center justify-content-around px-4">
                     <div class="container-fluid col-10">
                         <nav class="navbar navbar-expand-lg navbar-light">
                             <a href="index.html" class="navbar-brand" aria-label="Retour à l'accueil"><img src="images/logo.png" alt="logo" class="img-fluid" /></a>
@@ -34,22 +34,14 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="index.html" aria-label="Retour à l'accueil">Accueil</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="index.html#about" aria-label="A propos">A propos</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="index.html#catalogue" aria-label="Nos produits">Nos produits</a>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="index.html#catalogue" aria-label="Nos produits">Nos produits<span class="caret"></span></a>
+                                        <ul class="dropdown-menu liste-deroulante" id="listCategories">                                            
+                                        </ul>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="contact.html" aria-label="Contactez-nous">Contactez-nous</a>
                                     </li>                                       
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" aria-label="Nos autres boutiques">Nos autres boutiques<span class="caret"></span></a>
-                                        <ul class="dropdown-menu liste-deroulante">
-                                            <li><a  class="nav-link" href="ourson.html" aria-label="Lien vers la page Orinoco-Ours">Oursons</a></li>
-                                            <li><a  class="nav-link" href="meubles.html" aria-label="Lien vers la page Orinoco-Meubles">Meubles</a></li>
-                                        </ul>
-                                    </li>
                                 </ul>
                                 <ul class="navbar-nav">
                                     <li class="nav-item">
@@ -66,81 +58,73 @@
                         </a>
                     </div>
                 </div>
-                <div class="header-search col-md-6 m-auto">
+                <!-- Début du formulaire -->
+                <div class="header-search col-md-6 m-auto">                    
                     <div class="search-form">
-                        <form method="get">
-                            <div class="input-group m-auto"> 
-                                <label class="d-none" for="search">Recherche</label>
-                                <input type="text" name="search" id="search" class="form-control" placeholder="Votre recherche" />
-                                <div class="input-group-addon align-self-center">
-                                    <button type="submit">  
-                                        <span><img src="images/outline_search_black_24dp.png" alt="bouton rechercher"></span>
-                                    </button>
+                        <form class="avec-validation" novalidate="novalidate">
+                            <fieldset class="mb-1 mx-auto p-3 rounded text-left">                                
+                                <legend class="d-none">Recherche</legend>
+                                <input id="search" name="search" type="hidden" value="0" />
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <button id="searchCategorie" class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catégorie</button>
+                                        <div id="searchListe" class="dropdown-menu">
+                                            <a class="dropdown-item" data-valeur="0" href="#">Catégorie</a>
+                                            <div role="separator" class="dropdown-divider"></div>
+                                            <a class="dropdown-item" data-valeur="1" href="#">Appareils photo</a>
+                                            <a class="dropdown-item" data-valeur="2" href="#">Ours en peluche</a>
+                                            <a class="dropdown-item" data-valeur="3" href="#">Meubles en chêne</a>
+                                        </div>
+                                    </div>
+                                    <input id="searchSaisie" name="searchSaisie" type="text" class="form-control rounded-0" placeholder="Mot(s) clé(s)" aria-label="Saisie de mots clés" pattern=".{3,}" required="required" />
+                                    <div class="input-group-append">
+                                        <button type="submit" id="searchSoumettre" style="border-top-right-radius:.25rem;border-bottom-right-radius:.25rem;"><i class="fas fa-search"></i><span class="d-none d-sm-inline">  Recherche</span></button>
+                                    </div>
+                                    <div id="searchReponse1" class="valid-feedback text-light"></div>
+                                    <div class="invalid-feedback">Veuillez entrer au moins 3 caractères.</div>
                                 </div>
-                            </div>
+                            </fieldset>
                         </form>
                     </div>
-                </div>
+                </div>        
+                <!-- Fin du formulaire -->
             </div>
         </header>
         <!--FIN HEADER -->
 
     <main class="container mt-5 col-12 col-lg-10">
-        <div class="jumbotron text-center">
-            <img  src="images/camera.jpg" alt="appareil photo posé sur une table">
-            <h1>ORINOCO-CAMERA</h1>
-            <h2>Boutique 100% en ligne</h2>
-            <blockquote class="blockquote text-center">
-                
-                    La photographie est un instant qui ne se réfléchit pas, suspendue à une fraction de seconde qui laisse à réfléchir.
-                
-                <br />
-                    <cite title="Source Title">
-                        Remy Donnadieu
-                    </cite>
-            </blockquote>
-        </div>
         <article class="about my-2 p-3">
-            <h2 class="message text-center pb-4">A propos de Orinoco-camera</h2>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga officiis sit eos accusantium? Iure, tempora autem? Sed adipisci cumque aspernatur? Unde odio praesentium similique magnam quaerat consectetur dolores ipsam sunt?</p>
-        </article>
-        <article class="catalogue my-2" id="catalogue">
-            <h2 class="message text-center py-3">Découvrez nos cameras</h2>
-            <div id="cards" class="d-flex flex-lg-row flex-wrap justify-content-between align-items-center">
-                <template id="product">
-                    <div class="card px-1 mb-4 mx-auto">
-                        <a id="productLink" href="" aria-label="Lien vers la page du produit">
-                            <div class="card-image">
-                                <img id="productImage" class="img card-img pt-2 pb-1" src="" alt="">
-                                <div class="card-body card-img-overlay">
-                                    <div class="card-text">
-                                        <span id="productName" class="card-text-name">Product Name</span>
-                                    </div>
-                                    <div id="productDescription" class="card-text-description">
-                                        Description
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <div class="card-footer-price">
-                                    <span id="productPrice" class="price">$120</span>
-                                    <span class="add-to-cart">
-                                        <span class="add-to-cart-txt">Voir plus</span>
-                                    </span>
-                                </div>
-                                <!--<div class="flex items-center mr-4">
-                                    <img class="h-5" src="images/star.svg" alt="">
-                                    <img class="h-5" src="images/star.svg" alt="">
-                                    <img class="h-5" src="images/star.svg" alt="">
-                                    <img class="h-5" src="images/star.svg" alt="">
-                                    <img class="h-5" src="images/star.svg" alt="">
-                                </div>-->
-                            </div>
-                        </a>
-                    </div>
-                </template>                                           
-            </div>
-        </article>
+            <h2 class="message text-center pb-4">Bienvenue chez ORINOCO, notre entreprise de commerce en ligne !</h2>
+            <p>
+                Nous avons à coeur de proposer des articles de qualité, faits main pour la plupart ou des articles vintages et originaux 
+                que vous ne trouverez pas partout! <br>
+                Faiîtes-nous confiance pour des produits originaux et de qualité
+            </p>
+            <P class="pt-3">
+                Nous vous proposons nos produits à travers différentes boutiques : 
+                <div class="col-8">
+                    <a  class="nav-link d-flex flex-row align-items-center justify-content-around" href="catalogue.html?category=cameras" aria-label="Lien vers la page Orinoco-Cameras">
+                        <img src="images/camera.jpg" alt="image représentant un appareil photo" class="img-fluid" width="200"/>
+                        <p class="pl-3 font-weight-bold justify-content-center">ORINOCAMERAS - Nos appareils photo vintage</p>
+                    </a>
+                </div>
+                <div class="col-8">
+                    <a  class="nav-link d-flex flex-row align-items-center justify-content-around" href="catalogue.html?category=teddies" aria-label="Lien vers la page Orinoco-Ours">
+                        <img src="images/ourson.jpg" alt="image représentant un ours en peluche avec un paquet cadeau" class="img-fluid" width="200"/>
+                        <p class="pl-3 font-weight-bold align-items-center">ORINOOURS - Nos ours en peluche faits main</p>
+                    </a>
+                </div>
+                <div class="col-8">
+                    <a  class="nav-link d-flex flex-row align-items-center justify-content-around" href="catalogue.html?category=furniture" aria-label="Lien vers la page Orinoco-Meubles">
+                        <img src="images/meuble.jpg" alt="image représentant une planche de bois pour des meubles" class="img-fluid" width="200"/>
+                        <p class="pl-3 font-weight-bold justify-content-center">ORINOMEUBLES - Nos meubles en chêne</p>
+                    </a>
+                </div>
+            </P>
+            <p class="pt-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga officiis sit eos accusantium? Iure, tempora autem? Sed adipisci cumque aspernatur? Unde odio praesentium similique magnam quaerat consectetur dolores ipsam sunt?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam itaque possimus, suscipit aliquam corporis, similique ipsa laboriosam eveniet blanditiis, minus aperiam! Consectetur sunt numquam sit perferendis qui enim quasi itaque.
+            </p>
+        </article> 
     </main>
     <!--Fin main-->
 
@@ -149,21 +133,22 @@
         <div id="container">
             <div id="part1" class="d-flex flex-column flex-lg-row justify-content-lg-between align-items-center align-items-lg-start">
                 <div id="companyinfo" class="pb-2"> 
-                    <a id="txt0" class="sitelink text-center" href="index.html" aria-label="Retour à l'accueil">ORINOCO-CAMERA</a>
+                    <a id="txt0" class="sitelink text-center" href="index.html" aria-label="Retour à l'accueil">ORINOCO</a>
                     <p class="title text-center">Boutique 100% en ligne</p>
-                    <p class="detail text-center">Appareils photos vintage et lentilles de qualité</p>
+                    <p class="detail text-center">Feuilletez nos catalogues, des produits de qualité faits main</p>
                 </div>
                 <div id="explore" class="pb-2 text-center">
                     <h3 id="txt1" class="text-center">Explorer</h3> 
                     <a class="link" href="index.html" aria-label="Retour à l'accueil">Accueil</a> 
-                    <a class="link" href="index.html#about" aria-label="A propos de nous">A propos</a> 
-                    <a class="link" href="index.html#catalogue" aria-label="Lien vers notre catalogue">Produits</a> 
+                    <a class="link" href="catalogue.html?category=cameras" aria-label="Lien vers notre catalogue d'appareils photos">Orinocameras</a>                     
+                    <a class="link" href="catalogue.html?category=teddies" aria-label="Lien vers notre catalogue d'ours en peluche">Orinours</a>                     
+                    <a class="link" href="catalogue.html?category=furniture" aria-label="Lien vers notre catalogue de meubles">Orinomeubles</a> 
                     <a class="link" href="contact.html" aria-label="Contactez-nous">Contact</a>
                 </div>
                 <div id="visit" class="pb-2 text-center">
                     <h3 id="txt2" class="text-center">Nous contacter</h3>
-                    <p class="text">Orinoco-Camera </p>                    
-                    <p class="text">Mail: contact@orinoco-camera.com </p>
+                    <p class="text">Orinoco</p>                    
+                    <p class="text">Mail: contact@orinoco.com </p>
                     <p class="text">Téléphone: (33) 01-02-03-04-05 </p>
                     <p class="text">Fax: (33) 02-03-04-05-06 </p>
                 </div>

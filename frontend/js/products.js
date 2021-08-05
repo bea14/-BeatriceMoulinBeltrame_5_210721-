@@ -3,7 +3,7 @@
   const productId = getProductId()
   const productData = await getProductData(productId)
   displayPage(productData)
-  displayLenses(productData)
+  displayOptions(productData)
   addPanier(productData)
   addFavorites(productData)
 })()
@@ -13,7 +13,9 @@ function getProductId() {
 }
 
 function getProductData(productId) {
-  return fetch(`http://localhost:3000/api/cameras/${productId}`)
+  console.log('getCategory()',getCategory() )
+  const url = `${baseUrl}/` + getCategory() + `/${productId}`
+  return fetch(url)
     .catch((error) => {
       console.log(error)
     })
@@ -31,39 +33,48 @@ function displayPage(product) {
   updateNavBar()
 }
 
-function displayLenses(product) {
-  for (let i in product.lenses) {
+function displayOptions(product) {
+  category = getProductCategory()
+  console.log('category', category)
+  optionName = Object.values(product)[0]
+  console.log('optionName', optionName)
+  for (let i in optionName) {
     // Get template
-    const templateElt = document.getElementById("productLensesName")
+    const templateElt = document.getElementById("productOptionName")
     // Clone template
     const cloneElt = document.importNode(templateElt.content, true)
     // Complete template
-    cloneElt.getElementById('productLensesNameOption').textContent = product.lenses[i]
+    cloneElt.getElementById('productOptionNameOption').textContent = Object.values(product)[0][i]
+    
+  console.log('option', Object.values(product)[0][i])
     // Display template
-    document.getElementById('productLenses').appendChild(cloneElt)
+    document.getElementById('productOption').appendChild(cloneElt)
   }
 }
 
 //Ajouter le produit au local storage en cliquant sur le bouton Ajouter au panier
 function addPanier(product) {
-  let quantity = 0;
   document.getElementById('addToCart').onclick = (event) => {
     //récupération quantité et option
     quantite = parseInt(document.getElementById('qte').value)
-    optionLense = getSelectValue('productLenses')
+    optionName = getSelectValue('productOption')
+    categorie = getCategory()
+    console.log('categorie =',categorie)
     // Obtenir des informations sur le produit à partir de la demande d'API
     let produit = {
       'image': product.imageUrl,
       'id': product._id,
       'name': product.name,
-      'lense': optionLense,
+      'option': optionName,
       'price': product.price,
-      'quantity': quantite
+      'quantity': quantite,
+      'category': categorie
     }
+    console.log('produit',produit)
     // Ajout au local storage
     let shoppingCart = (JSON.parse(localStorage.getItem('shoppingCart')) || [])
     //Verification si produit est déjà dans panier
-    let alreadyInCart = shoppingCart.findIndex((item => item.id === produit.id) && (item => item.lense === produit.lense))
+    let alreadyInCart = shoppingCart.findIndex((item => item.id === produit.id) && (item => item.option === produit.option))
     if (alreadyInCart == -1) {
       shoppingCart.push(produit)
       localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart))

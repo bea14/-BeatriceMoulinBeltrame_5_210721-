@@ -923,3 +923,11 @@ blockquote::after {
   font-size: 1.75em;
   font-family: "Sniglet", cursive;
 }
+
+#resumeCommande tr td {
+  width: 14%;
+}
+
+#tableConfirm thead th {
+  width: 14%;
+}

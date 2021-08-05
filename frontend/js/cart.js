@@ -4,12 +4,7 @@
   displayPage(productsInShoppingCart)
 })()
 
-function getProducts(){
-  return JSON.parse(localStorage.getItem('shoppingCart'))
-}
 productsInShoppingCart = getProducts()
-console.log('productsInShoppingCart=',productsInShoppingCart)
-
 
 function displayPage(productsInShoppingCart) {
   updateNavBar()
@@ -35,9 +30,10 @@ function displayProduct(product) {
   let quantity = product.quantity - 1
   // Complete template  
   cloneElt.getElementById('productImage').src = product.image  
-  cloneElt.getElementById('productID').textContent  = product.id
+  cloneElt.getElementById('productID').textContent  = product.id  
+  cloneElt.getElementById('productCategory').textContent  = product.category
   cloneElt.getElementById('productName').textContent = product.name
-  cloneElt.getElementById('productLense').textContent = product.lense
+  cloneElt.getElementById('productOption').textContent = product.option
   cloneElt.getElementById('productQuantity').selectedIndex = quantity
   cloneElt.getElementById('productPrice').textContent = convertPrice(product.price)
   cloneElt.getElementById('productTotalPrice').textContent = convertPrice(product.price * product.quantity)
@@ -47,8 +43,8 @@ function displayProduct(product) {
     cloneElt.getElementById('productQuantity').onchange = (e) => {
     e.preventDefault()
     let productId = product.id
-    let productLense = product.lense
-    let concernedProduct = productsInShoppingCart.findIndex( (product=> product.id === productId  && product.lense === productLense))
+    let productOption= product.option
+    let concernedProduct = productsInShoppingCart.findIndex( (product=> product.id === productId  && product.option === productOption))
     updateProductQuantity(concernedProduct, e.target.selectedIndex + 1)
     
     //Update nb produits dans panier et prix total produit
@@ -76,8 +72,8 @@ function displayProduct(product) {
   cloneElt.getElementById('clearItem').addEventListener('click', (event) => {    
     event.preventDefault()
     let productId = product.id    
-    let productLense = product.lense
-    let concernedProduct = productsInShoppingCart.findIndex( (product=> product.id === productId  && product.lense === productLense))
+    let productOption = product.option
+    let concernedProduct = productsInShoppingCart.findIndex( (product=> product.id === productId  && product.option === productOption))
     console.log('concernedProduct',concernedProduct)
     productsInShoppingCart.splice(concernedProduct, 1)
     localStorage.setItem('shoppingCart', JSON.stringify(productsInShoppingCart))
@@ -259,9 +255,10 @@ submitBtn.addEventListener('click', (e) => {
 
     console.log('order=',order)
     console.log('requestOptions=',requestOptions)
-
-
-    fetch(`http://localhost:3000/api/cameras/order`, requestOptions)
+    //const url = `${baseUrl}/` + getCategory() + `/order`
+    const url = `${baseUrl}/cameras/order`
+    console.log('url',url)
+    fetch(url, requestOptions)
       .then((response) => response.json())
       .then((validatedProducts) => {      
         console.log(validatedProducts)

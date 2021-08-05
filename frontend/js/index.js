@@ -4,9 +4,11 @@
   displayPage(products)
 })()
 
+
 //récupération de tous les products au format json
 async function getProducts() {
-  return fetch("http://localhost:3000/api/cameras")
+  url = `${baseUrl}/`+ getCategory()
+  return fetch(url)
   .then((httpBodyResponse) => httpBodyResponse.json())
   .then((products) => products)
   .catch((error) => {
@@ -33,7 +35,8 @@ function displayProduct(product) {
   cloneElt.getElementById('productName').textContent = product.name
   cloneElt.getElementById('productPrice').textContent = convertPrice(product.price )
   cloneElt.getElementById('productDescription').textContent = product.description
-  cloneElt.getElementById('productLink').href = `products.html?id=${product._id}`
+  const href =  `products.html?category=` + getCategory() + `&id=${product._id}`
+  cloneElt.getElementById('productLink').href = href
   // Display template
   document.getElementById('cards').appendChild(cloneElt)
 }

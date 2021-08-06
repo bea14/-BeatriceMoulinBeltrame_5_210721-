@@ -93,7 +93,13 @@
         <!--FIN HEADER -->
 
 
-    <main class="container" id="main-cart">
+    <main class="container" id="main-cart"><nav aria-label="breadcrumb">            
+        <ol class="breadcrumb">                
+            <li class="breadcrumb-item">Vous êtes ici : </li>
+            <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="cart.html">Panier</a></li>
+        </ol>
+    </nav>
         <div class="col m-auto">
             <h1 class="text-center cart-title mt-2">Panier</h1>
             <!-- Panier -->
@@ -103,8 +109,8 @@
                     <thead>
                       <tr>
                         <th>Image</th>
-                        <th class="d-none">Id</th>                        
-                        <th class="d-none">Categorie</th>
+                        <th class="collapse">Id</th>                        
+                        <th class="collapse">Categorie</th>
                         <th>Produit</th>                        
                         <th>Option</th>
                         <th>Quantité</th>
@@ -119,8 +125,8 @@
                             <td>
                                 <img id="productImage" class="img-fluid img-thumbnail" src="" alt="">
                             </td>
-                            <td id="productID" class="d-none">Id</td>
-                            <td id="productCategory" class="text-center d-none">Categorie</td>
+                            <td id="productID" class="collapse">Id</td>
+                            <td id="productCategory" class="text-center collapse">Categorie</td>
                             <td id="productName" class="text-center">Name</td>
                             <td id="productOption" class="text-center">Option</td>
                             <td class="p-0 text-center">
@@ -154,13 +160,13 @@
                       </template>
                       <tr class="bg-light">
                         <td colspan="6" class="py-2 text-center font-weight-bold">Total</td>
-                        <td class="text-center font-weight-bold" id="totalPrice">x€</td>
+                        <td colspan="2" class="text-center font-weight-bold" id="totalPrice">x€</td>
                         <td></td>
                       </tr>
                     </tbody>
                 </table>     
                 <!--Boutons de validation et d'effacement du panier-->
-                <div class="text-right">
+                <div class="text-center">
                     <button class="btn btn-primary my-2" id="confirmPurchase" 
                     onclick="document.getElementById('Form').style.display='inline';"> Confirmer le panier</button> 
                     <!--<button class="btn btn-primary my-2" id="continueShoppig"> <a href = "index.html#catalogue"></a>Poursuivre mes achats</button>-->

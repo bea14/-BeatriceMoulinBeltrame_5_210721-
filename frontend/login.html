@@ -93,6 +93,13 @@
         <!--FIN HEADER -->
 
     <main class="container">
+        <nav aria-label="breadcrumb">            
+            <ol class="breadcrumb">                
+                <li class="breadcrumb-item">Vous êtes ici : </li>
+                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="login.html">Connexion</a></li>
+            </ol>
+        </nav>
         <section class="login border rounded mt-4">
             <div class="row">
                 <div class="col">
@@ -125,9 +132,9 @@
                         <div class="row justify-content-center">           
                             <button class="btn btn-primary text-center col-5 m-auto" type="submit">Envoyer</button>
                         </div>
-                        <div class="row justify-content-center">       
-                            <button class="btn btn-lg btn-block btn-primary col-4 m-3" style="background-color: #AE1C0A;" type="submit"><i class="fab fa-google me-2"></i> Connexion avec google</button>
-                            <button class="btn btn-lg btn-block btn-primary col-4 m-3" style="background-color: #3b5998;" type="submit"><i class="fab fa-facebook-f me-2"></i>Connexion avec facebook</button>
+                        <div class="row justify-content-center flex-column flex-md-row align-items-center">       
+                            <button class="btn btn-lg btn-block btn-primary col-10 col-md-4 m-3" style="background-color: #AE1C0A;" type="submit"><i class="fab fa-google me-2"></i> Connexion avec google</button>
+                            <button class="btn btn-lg btn-block btn-primary col-10 col-md-4 m-3" style="background-color: #3b5998;" type="submit"><i class="fab fa-facebook-f me-2"></i>Connexion avec facebook</button>
                         </div>
                     </form>
                 </div>

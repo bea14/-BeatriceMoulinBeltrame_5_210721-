@@ -93,22 +93,26 @@
         <!--FIN HEADER -->
 
 	<!--Partie principale-->
-    <main id="main-product"> 
+    <main class="container mt-5 col-12 col-lg-10"> 
         <nav aria-label="breadcrumb">            
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
-              <li class="breadcrumb-item"><a href="index.html#catalogue">Nos produits</a></li>
-              <li class="breadcrumb-item active" aria-current="page" >Produit</li>
+            <ol class="breadcrumb">                
+                <li class="breadcrumb-item">Vous êtes ici : </li>
+                <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                <li class="breadcrumb-item"><a href="catalogue.html">Nos produits</a></li>
+                <li class="breadcrumb-item active" aria-current="page" >Produit</li>
             </ol>
         </nav>
-        <section class="flex items-stretch p-4 mt-4 rounded-md lg:flex-row">
+        <section class="d-flex align-items-center justify-content-center p-2 mt-4 rounded-md flex-lg-row">
             <div class="productcard">
-                <a href="#" onclick="history.back(-1)">
+                <!--<a href="#" onclick="window.history.back();">
                     &lt; Retour aux produits
-                </a>
+                </a>-->
+                <p id="returnBack">
+                    &lt; Retour aux produits
+                </p>
                 <div class="productcard-card d-flex flex-column flex-md-row">
                     <div class="text-center"> 
-                        <img id="productImage" class="object-cover rounded" src="" alt="pproductImageAlt"> 
+                        <img id="productImage" class="object-cover rounded" src="productImageSrc" alt="pproductImageAlt"> 
                     </div>
                     <div class="info">
                         <div class="row title">
@@ -144,9 +148,8 @@
                       </button>
                 </div>
             </div>
-        </section>
-        
-        <!--Fenetres modales-->
+        </section>        
+        <!--Fenetre modale-->
         <div class="modal fade" id="fenetremodale1" tabindex="-1" aria-labelledby="fenetremodale1title" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -158,8 +161,8 @@
                         Votre article a bien été ajouté au panier
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href = '#';">Poursuivre mes achats</button>
-                        <button type="button" class="btn btn-secondary" onclick="window.location.href = 'cart.html';">Aller au panier</button>
+                        <!--<button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="window.location.href='#';">Poursuivre mes achats</button>-->
+                        <button type="button" class="btn btn-secondary" onclick="window.location.href='cart.html';">Aller au panier</button>
                     </div>
                 </div>
             </div>

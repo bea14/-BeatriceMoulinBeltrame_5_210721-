@@ -93,6 +93,14 @@
         <!--FIN HEADER -->
 
         <main>
+            <nav aria-label="breadcrumb">            
+                <ol class="breadcrumb">                
+                    <li class="breadcrumb-item">Vous êtes ici : </li>
+                    <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                    <li class="breadcrumb-item"><a href="cart.html">Panier</a></li>
+                    <li class="breadcrumb-item active" aria-current="page" >Confirmation de commande</li>
+                </ol>
+            </nav>
             <h1 class="text-center">Confirmation de commande</h1>
             <!-- Resume informations commande -->
             <section id="contact" class="mx-5 px-0 px-lg-5">
@@ -118,16 +126,17 @@
                             <tbody id="resumeCommande">
                                 <!--<tr><td colspan="6" id="categoryName"></td></tr>-->
                                 <template id="Commande">
-                                <tr class="text-center">
-                                    <td class="align-middle">
-                                        <img src="" class="img-fluid img-thumbnail" alt="" id="imageCommande" width="200">
-                                    </td>
-                                    <td class="align-middle" id="nameCommande" ></td>
-                                    <td class="align-middle" id="optionCommande" ></td>
-                                    <td class="align-middle" id="quantityCommande" ></td>
-                                    <td class="align-middle" id="priceCommande" ></td>
-                                    <td class="align-middle" id="subTotalCommande" ></td>
-                                </tr>
+                                    <tr class="text-center">
+                                        <td class="align-middle">
+                                            <img src="" class="img-fluid img-thumbnail" alt="" id="imageCommande" width="200">
+                                        </td>
+                                        <td class="align-middle" id="nameCommande" ></td>
+                                        <td class="align-middle" id="optionCommande" ></td>
+                                        <td class="align-middle" id="quantityCommande" ></td>
+                                        <td class="align-middle" id="priceCommande" ></td>
+                                        <td class="align-middle" id="subTotalCommande" ></td>
+                                    </tr>                                
+                                </template>
                                 <!--<tr>
                                     <th colspan="4" class="bg-white">Sous-Total : </th>
                                     <th colspan="2" id="subTotal"></th></tr>-->
@@ -135,7 +144,6 @@
                             <tfoot  id="total" >
                             </tfoot>
                         </table>
-                    </template>
                     <!--
                     <table class="table table-hover my-auto mx-0" id="tableConfirm">
                         <thead>

@@ -24,7 +24,7 @@
             <div class="container-fluid">
                 <div class="row align-items-center justify-content-around px-4">
                     <div class="container-fluid col-10">
-                        <nav class="navbar navbar-expand-lg navbar-light">
+                        <nav class="navbar navbar-expand-lg navbar-light" aria-label="menu principal">
                             <a href="index.html" class="navbar-brand" aria-label="Retour à l'accueil"><img src="images/logo.png" alt="logo" class="img-fluid" /></a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuprincipal" aria-controls="menuprincipal" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
@@ -35,7 +35,7 @@
                                         <a class="nav-link" href="index.html" aria-label="Retour à l'accueil">Accueil</a>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="index.html#catalogue" aria-label="Nos produits">Nos produits<span class="caret"></span></a>
+                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="index.html#catalogue" aria-label="Nos boutiques">Nos boutiques<span class="caret"></span></a>
                                         <ul class="dropdown-menu liste-deroulante" id="listCategories">                                            
                                         </ul>
                                     </li>
@@ -92,22 +92,70 @@
         </header>
         <!--FIN HEADER -->
 
-    <main class="container-fluid mt-5 col-12 col-lg-10">        
+    <main class="container mt-5 col-12 col-lg-10">        
         <nav aria-label="breadcrumb">            
             <ol class="breadcrumb">
               <li class="breadcrumb-item">Vous êtes ici : </li>
               <li class="breadcrumb-item active" aria-current="page"><a href="index.html">Accueil</a></li>
             </ol>
-        </nav>
-        <article class="about my-2 p-3">
-            <h2 class="message text-center pb-4">Bienvenue chez ORINOCO, notre entreprise de commerce en ligne !</h2>
+        </nav> 
+        <div class="jumbotron text-center">
+            <img  src="images/camera.jpg" alt="appareil photo posé sur une table">
+            <h1>ORINOCO-CAMERA</h1>
+            <h2>Boutique 100% en ligne</h2>
+            <blockquote class="blockquote text-center">                
+                    La photographie est un instant qui ne se réfléchit pas, suspendue à une fraction de seconde qui laisse à réfléchir.
+                <br />
+                    <cite title="Source Title">
+                        Remy Donnadieu
+                    </cite>
+            </blockquote>
             <p>
-                Nous avons à coeur de proposer des articles de qualité, faits main pour la plupart ou des articles vintages et originaux 
-                que vous ne trouverez pas partout! <br>
-                Faiîtes-nous confiance pour des produits originaux et de qualité
+                Fondée en 1996, Orinoco est une entreprise leader dans la vente d'appareils photos vintage. L'entreprise est reconnue pour son expertise dans ce domaine
+                et vous propose des appareils fiables, de qualité et garantis fonctionnels. Notre entreprise, leader recoonu en matière de conception innovante et d'éco-responsabilité,
+                s'engage à faire son maximum pour répondre à vos besoins. 
             </p>
+        </div>
+        <article class="catalogue my-2" id="catalogue">
+            <h2 class="message text-center py-3">Découvrez nos cameras</h2>
+            <div id="cards" class="d-flex flex-lg-row flex-wrap justify-content-between align-items-center">
+                <template id="product">
+                    <div class="card px-1 mb-4 mx-auto">
+                        <a id="productLink" href="" aria-label="Lien vers la page du produit">
+                            <div class="card-image">
+                                <img id="productImage" class="img card-img pt-2 pb-1" src="" alt="">
+                                <div class="card-body card-img-overlay">
+                                    <div class="card-text">
+                                        <span id="productName" class="card-text-name">Product Name</span>
+                                    </div>
+                                    <div id="productDescription" class="card-text-description">
+                                        Description
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-footer-price">
+                                    <span id="productPrice" class="price">$120</span>
+                                    <span class="add-to-cart">
+                                        <span class="add-to-cart-txt">Voir plus</span>
+                                    </span>
+                                </div>
+                                <!--<div class="flex items-center mr-4">
+                                    <img class="h-5" src="images/star.svg" alt="">
+                                    <img class="h-5" src="images/star.svg" alt="">
+                                    <img class="h-5" src="images/star.svg" alt="">
+                                    <img class="h-5" src="images/star.svg" alt="">
+                                    <img class="h-5" src="images/star.svg" alt="">
+                                </div>-->
+                            </div>
+                        </a>
+                    </div>
+                </template>                                           
+            </div>
+        </article>
+        <article class="about my-2 p-3">
+            <h2 class="message text-center pb-4">TOUTES NOS BOUTIQUES :</h2>
             <div class="pt-3">
-                <p>Nous vous proposons nos produits à travers différentes boutiques : </p>
                 <div class="container d-flex flex-column flex-md-row flex-lg-column">
                     <div class="d-flex align-items-center">
                         <a class="nav-link d-flex p-2 flex-column flex-lg-row" href="catalogue.html?category=cameras" aria-label="Lien vers la page Orinoco-Cameras">
@@ -137,10 +185,7 @@
                     </div>
                 </div>
             </div>
-            <p class="pt-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga officiis sit eos accusantium? Iure, tempora autem? Sed adipisci cumque aspernatur? Unde odio praesentium similique magnam quaerat consectetur dolores ipsam sunt?
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam itaque possimus, suscipit aliquam corporis, similique ipsa laboriosam eveniet blanditiis, minus aperiam! Consectetur sunt numquam sit perferendis qui enim quasi itaque.
-            </p>
-        </article> 
+        </article>
     </main>
     <!--Fin main-->
 
@@ -205,5 +250,6 @@
    
     <!-- Scripts JS -->
     <script src="js/scripts.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>

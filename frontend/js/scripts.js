@@ -79,8 +79,8 @@ function updateNavBar(){
   }
   else {
     let count = 0
-    for(let i = 0; i < cart.length; i++){          
-      count += parseInt(cart[i].quantity)
+    for (let value of cart) {               
+      count += parseInt(value.quantity)
     }
     navbarBadge.innerHTML = count
     navbarBadge.style.display = "inline-block"

@@ -4,7 +4,7 @@
   displayPage(productsInShoppingCart)
 })()
 
-productsInShoppingCart = getProducts()
+let productsInShoppingCart = getProducts()
 
 function displayPage(productsInShoppingCart) {
   // Set total price
@@ -52,7 +52,6 @@ function displayProduct(product) {
   // Update all products total price    
   document.getElementById('totalPrice').textContent = convertPrice(getTotalPrice())
   window.location.reload()
-  newQuantity = 0
   concernedProduct = -1
 }
 

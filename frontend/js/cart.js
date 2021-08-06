@@ -7,12 +7,10 @@
 productsInShoppingCart = getProducts()
 
 function displayPage(productsInShoppingCart) {
-  updateNavBar()
   // Set total price
   let total = 0
   for (let i in productsInShoppingCart) {
       total += productsInShoppingCart[i].quantity * productsInShoppingCart[i].price
-      console.log('total',total)
   }
   document.getElementById('totalPrice').textContent = convertPrice(total)
   //totalPrice()
@@ -37,50 +35,38 @@ function displayProduct(product) {
   cloneElt.getElementById('productQuantity').selectedIndex = quantity
   cloneElt.getElementById('productPrice').textContent = convertPrice(product.price)
   cloneElt.getElementById('productTotalPrice').textContent = convertPrice(product.price * product.quantity)
-
   // Add events quantity change
-  //cloneElt.getElementById('productQuantity').addEventListener('click', (event) => {
-    cloneElt.getElementById('productQuantity').onchange = (e) => {
-    e.preventDefault()
-    let productId = product.id
-    let productOption= product.option
-    let concernedProduct = productsInShoppingCart.findIndex( (product=> product.id === productId  && product.option === productOption))
-    updateProductQuantity(concernedProduct, e.target.selectedIndex + 1)
-    
-    //Update nb produits dans panier et prix total produit
-    updateNavBar()
-    location.reload()
+  cloneElt.getElementById('productQuantity').onchange = (e) => {
+  e.preventDefault()
+  let productId = product.id
+  let productOption= product.option
+  let concernedProduct = productsInShoppingCart.findIndex( (product=> product.id === productId  && product.option === productOption))
+  updateProductQuantity(concernedProduct, e.target.selectedIndex + 1)
+  //Update nb produits dans panier et prix total produit
+  updateNavBar()
+  location.reload()
+  // Update product total price
+  const totalPriceElt = document.getElementById('productTotalPrice')
+  const newPrice = convertPrice((productsInShoppingCart[concernedProduct].price * productsInShoppingCart[concernedProduct].quantity))
+  totalPriceElt.textContent = newPrice
+  // Update all products total price    
+  document.getElementById('totalPrice').textContent = convertPrice(getTotalPrice())
+  window.location.reload()
+  newQuantity = 0
+  concernedProduct = -1
+}
 
-
-    
-    // Update product total price
-    const totalPriceElt = document.getElementById('productTotalPrice')
-    console.log('totalPriceElt',totalPriceElt)
-   
-    const newPrice = (productsInShoppingCart[concernedProduct].price * productsInShoppingCart[concernedProduct].quantity) / 100 + '.00€'
-    totalPriceElt.textContent = newPrice
-    console.log('totalPriceElt.textContent',totalPriceElt.textContent)
-    // Update all products total price    
-    document.getElementById('totalPrice').textContent = getTotalPrice() + '.00€'
-    console.log('totalPrice',document.getElementById('totalPrice').textContent) 
-    window.location.reload()
-    newQuantity = 0
-    concernedProduct = -1
-    console.log('newQuantity',newQuantity)
-  }
-  // Add events delete item
+// Add events delete item
   cloneElt.getElementById('clearItem').addEventListener('click', (event) => {    
-    event.preventDefault()
-    let productId = product.id    
-    let productOption = product.option
-    let concernedProduct = productsInShoppingCart.findIndex( (product=> product.id === productId  && product.option === productOption))
-    console.log('concernedProduct',concernedProduct)
-    productsInShoppingCart.splice(concernedProduct, 1)
-    localStorage.setItem('shoppingCart', JSON.stringify(productsInShoppingCart))
-    console.log(productsInShoppingCart)
-    window.location.reload()
-    updateNavBar()
-    panierVide()
+  event.preventDefault()
+  let productId = product.id    
+  let productOption = product.option
+  let concernedProduct = productsInShoppingCart.findIndex( (product=> product.id === productId  && product.option === productOption))
+  productsInShoppingCart.splice(concernedProduct, 1)
+  localStorage.setItem('shoppingCart', JSON.stringify(productsInShoppingCart))
+  window.location.reload()
+  updateNavBar()
+  panierVide()
   })
   // Display template
   document.getElementById('productsList').prepend(cloneElt)
@@ -88,10 +74,8 @@ function displayProduct(product) {
 
 function updateProductQuantity(productId, quantity) {
   productsInShoppingCart[productId].quantity = quantity
-  console.log('productsInShoppingCart[productId]',productsInShoppingCart[productId])
   // Mise à jour du localstorage
   localStorage.setItem('shoppingCart', JSON.stringify(productsInShoppingCart))
-  console.log('productsInShoppingCartmaj',productsInShoppingCart)
 }
 
 function clearCart () {
@@ -101,7 +85,7 @@ function clearCart () {
     localStorage.clear()
     window.location.reload()
     panierVide()
-})
+  })
 }
 clearCart()
 
@@ -125,6 +109,7 @@ function inputIsValid(elt) {
   elt.style.border = 'solid 1px green'
   elt.style.boxShadow = '#00800066 0px 0px 4px'
 }
+
 function inputIsNotValid(elt) {
   elt.style.border = 'solid 1px red'
   elt.style.boxShadow = 'rgba(128, 0, 0, 0.4) 0px 0px 4px'
@@ -150,11 +135,7 @@ function clearInput() {
 function verif() {
   let nbErreurs = 0
   let erreurs = []
-  let verifOK = false  
-   
-  console.log('nbErreurs',nbErreurs)   
-  console.log('erreurs',erreurs)
-  console.log('verifOK',verifOK)
+  let verifOK = false 
   const regexLastName=/[a-zA-Z',.-]+( [a-zA-Z',.-]+)*/
   if (regexLastName.test(nom.value) && nom.value.length > 1) {
     inputIsValid(nom)
@@ -178,7 +159,7 @@ function verif() {
   } else {
     inputIsValid(addresse)
   }
-const Regexzipcode = /\d{2}[- ]?\d{3}/
+  const Regexzipcode = /\d{2}[- ]?\d{3}/
   if (cp.value.length > 1 && Regexzipcode.test(cp.value)) {
     inputIsValid(cp)
   } else {
@@ -201,9 +182,6 @@ const Regexzipcode = /\d{2}[- ]?\d{3}/
     inputIsNotValid(mail)
     nbErreurs += 1
   }  
-  console.log('nbErreurs',nbErreurs)   
-  console.log('erreurs',erreurs)
-  console.log('verifOK',verifOK)
   if (nbErreurs != 0) {
      alert("Le formulaire n'a pas pu être validé car :\n\n" + erreurs.join("\n"))
   } else {
@@ -217,11 +195,7 @@ const Regexzipcode = /\d{2}[- ]?\d{3}/
       email: mail.value,
     }
   }
-  console.log('contact', contact)
   clearInput()
-  console.log('nbErreurs',nbErreurs)   
-  console.log('erreurs',erreurs)
-  console.log('verifOK',verifOK)
   return (contact)
 }
 
@@ -233,10 +207,9 @@ submitBtn.addEventListener('click', (e) => {
   contact = verif()
   // on valide que le formulaire soit correctement rempli
   if ( contact.length != 0) {
-    e.preventDefault();
+    e.preventDefault()
     //on récupère les données du formulaire
     contact = verif()
-    console.log('contact',contact)
     // On récupère les id des produits qui sont dans le panier
     let products = []
     for (let i in productsInShoppingCart ) {
@@ -246,33 +219,26 @@ submitBtn.addEventListener('click', (e) => {
     let order = {
       contact, products
     }
-    console.log('order', order)
     const requestOptions = {
       method: 'POST',
       body: JSON.stringify(order),
       headers: { 'Content-Type': 'application/json',},
     }
-
-    console.log('order=',order)
-    console.log('requestOptions=',requestOptions)
     //const url = `${baseUrl}/` + getCategory() + `/order`
     const url = `${baseUrl}/cameras/order`
-    console.log('url',url)
     fetch(url, requestOptions)
       .then((response) => response.json())
-      .then((validatedProducts) => {      
-        console.log(validatedProducts)
+      .then((validatedProducts) => {   
         sessionStorage.setItem('panier',JSON.stringify(validatedProducts))
-        console.log('panier.orderId',validatedProducts.orderId)
-        
-        document.location.href = "confirm.html?orderId=${validatedProducts.orderId}"
+        document.location.href = "confirm.html"
       })
       .catch((error) => {
-        alert( "La connexion au serveur n'a pas pu être effectué.")
+        console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message)
       })
-    }
-    else {
-      alert ('Merci de remplir correctement le formulaire')
-      console.log('Merci de remplir correctement le formulaire')
-    }
+  }
+  else {
+    alert ('Merci de remplir correctement le formulaire')
+  }
 })
+
+

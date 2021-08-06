@@ -5,7 +5,7 @@
   displayPage(productData)
   displayOptions(productData)
   addPanier(productData)
-  addFavorites(productData)
+  //addFavorites(productData)
 })()
 
 function getProductId() {
@@ -13,11 +13,10 @@ function getProductId() {
 }
 
 function getProductData(productId) {
-  console.log('getCategory()',getCategory() )
   const url = `${baseUrl}/` + getCategory() + `/${productId}`
   return fetch(url)
     .catch((error) => {
-      console.log(error)
+      console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message)
     })
     .then((httpBodyResponse) => httpBodyResponse.json())
     .then((productData) => productData)
@@ -29,15 +28,12 @@ function displayPage(product) {
   document.getElementById('productName').textContent = product.name
   document.getElementById('productPrice').textContent = convertPrice(product.price)
   document.getElementById('productDescription').textContent = product.description
-  updateFavoris()  
-  updateNavBar()
+  updateFavoris()
 }
 
 function displayOptions(product) {
   category = getProductCategory()
-  console.log('category', category)
   optionName = Object.values(product)[0]
-  console.log('optionName', optionName)
   for (let i in optionName) {
     // Get template
     const templateElt = document.getElementById("productOptionName")
@@ -45,11 +41,13 @@ function displayOptions(product) {
     const cloneElt = document.importNode(templateElt.content, true)
     // Complete template
     cloneElt.getElementById('productOptionNameOption').textContent = Object.values(product)[0][i]
-    
-  console.log('option', Object.values(product)[0][i])
     // Display template
     document.getElementById('productOption').appendChild(cloneElt)
   }
+}
+
+document.getElementById('returnBack').onclick = (event) => {
+  window.location.href = 'catalogue.html?category='+ getCategory()
 }
 
 //Ajouter le produit au local storage en cliquant sur le bouton Ajouter au panier
@@ -59,7 +57,6 @@ function addPanier(product) {
     quantite = parseInt(document.getElementById('qte').value)
     optionName = getSelectValue('productOption')
     categorie = getCategory()
-    console.log('categorie =',categorie)
     // Obtenir des informations sur le produit à partir de la demande d'API
     let produit = {
       'image': product.imageUrl,
@@ -70,7 +67,6 @@ function addPanier(product) {
       'quantity': quantite,
       'category': categorie
     }
-    console.log('produit',produit)
     // Ajout au local storage
     let shoppingCart = (JSON.parse(localStorage.getItem('shoppingCart')) || [])
     //Verification si produit est déjà dans panier
@@ -96,9 +92,9 @@ function addFavorites(product) {
     let listFavoris = getFavoris()
     let alreadyInPreferred = listFavoris.findIndex(item => item.id === produitid)
     if (alreadyInPreferred == -1) {
-      addFavoris(produitid);
+      addFavoris(produitid)
     } else {
-      removeFavoris(produitid);
+      removeFavoris(produitid)
     }
   }
 }

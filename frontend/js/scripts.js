@@ -62,100 +62,80 @@ function getProducts(){
 
 function getProductCategory() {
     return new URL(window.location.href).searchParams.get('category')
-  }
+}
 
 function getCategory() {
-if (window.location.href ==='http://127.0.0.1:5501/frontend/index.html' || window.location.href ==='http://127.0.0.1:5501/frontend/index.html#catalogue') {
-return urlcat = 'cameras'
-}
-else {
-return urlcat = getProductCategory()
-}
+  if (window.location.href ==='http://127.0.0.1:5501/frontend/index.html' || window.location.href ==='http://127.0.0.1:5501/frontend/index.html#catalogue') {
+    return urlcat = 'cameras'
+  }
+  else {
+    return urlcat = getProductCategory()
+  }
 }
   
 function updateNavBar(){
-    cart = (JSON.parse(localStorage.getItem('shoppingCart')) || [] )
-    if( cart.length === 0){
-        navbarBadge.style.display = "none"
+  cart = (JSON.parse(localStorage.getItem('shoppingCart')) || [] )
+  if( cart.length === 0){
+      navbarBadge.style.display = "none"
+  }
+  else {
+    let count = 0;
+    for(let i = 0; i < cart.length; i++){          
+      count += parseInt(cart[i].quantity)
     }
-    else {
-        let count = 0;
-        for(let i = 0; i < cart.length; i++){          
-          count += parseInt(cart[i].quantity)
-        }
-        navbarBadge.innerHTML = count
-        navbarBadge.style.display = "inline-block"
-    }
+    navbarBadge.innerHTML = count
+    navbarBadge.style.display = "inline-block"
+  }
+  if (window.location.href ==='http://127.0.0.1:5501/frontend/confirm.html') {navbarBadge.style.display = "none"}
 }
+updateNavBar()
 
 function getSelectValue(selectId) {
-    /**On récupère l'élement html <select>*/
-    var selectElmt = document.getElementById(selectId)
-    /**
-    selectElmt.options correspond au tableau des balises <option> du select
-    selectElmt.selectedIndex correspond à l'index du tableau options qui est actuellement sélectionné
-    */
-    return selectElmt.options[selectElmt.selectedIndex].value
+  /**On récupère l'élement html <select>*/
+  var selectElmt = document.getElementById(selectId)
+  /**
+  selectElmt.options correspond au tableau des balises <option> du select
+  selectElmt.selectedIndex correspond à l'index du tableau options qui est actuellement sélectionné
+  */
+  return selectElmt.options[selectElmt.selectedIndex].value
 }
 
 function updateFavoris() {
-    fav = (JSON.parse(localStorage.getItem('listFavoris')) || [] )     
-    productId = new URL(window.location.href).searchParams.get('id') 
-    let heart = document.getElementById('addFavorite')
-    if (fav.length != 0){
-        let concernedFavProduct = fav.findIndex(fav => productId === fav.id)
-       if (concernedFavProduct != -1) {
-        const fullHeart = "<i class=\"fa fa-heart\" aria-hidden=\"true\">&nbsp;</i>"
-        heart.innerHTML = fullHeart
-        heart.style.color = 'red'
-       } else {
-        const fullHeart = "<i class=\"far fa-heart\" aria-hidden=\"true\">&nbsp;</i>"
-        heart.innerHTML = fullHeart  
-        heart.style.color = 'black'
-       }
+  fav = (JSON.parse(localStorage.getItem('listFavoris')) || [] )     
+  productId = new URL(window.location.href).searchParams.get('id') 
+  let heart = document.getElementById('addFavorite')
+  if (fav.length != 0){
+      let concernedFavProduct = fav.findIndex(fav => productId === fav.id)
+      if (concernedFavProduct != -1) {
+      const fullHeart = "<i class=\"fa fa-heart\" aria-hidden=\"true\">&nbsp;</i>"
+      heart.innerHTML = fullHeart
+      heart.style.color = 'red'
+    } else {
+      const fullHeart = "<i class=\"far fa-heart\" aria-hidden=\"true\">&nbsp;</i>"
+      heart.innerHTML = fullHeart  
+      heart.style.color = 'black'
     }
-
+  }
 }
 
 function getTotalPrice() {
-    let total = 0
-      for (let i in productsInShoppingCart) {
-          total += productsInShoppingCart[i].quantity * productsInShoppingCart[i].price
-      }
-      return  total
+  let total = 0
+  for (let i in productsInShoppingCart) {
+      total += productsInShoppingCart[i].quantity * productsInShoppingCart[i].price
+  }
+  return  total
 }
 
 function convertPrice(productPrice) {
-    let price = `${productPrice}`;
-    //Intl.NumberFormat([locales[, options]])
-    //style "currency" pour un affichage en fonction de la devise 
-    //currency "EUR"qui affichera le code ISO de la devise
-    //minimumFractionDigits nombre minimal de chiffres à utiliser pour la partie entière
-    price = Intl.NumberFormat("fr-FR", {
-        style: "currency",
-        currency: "EUR",
-        minimumFractionDigits: 2,
-    }).format(price / 100);
-    return price;
+  let price = `${productPrice}`
+  //Intl.NumberFormat([locales[, options]])
+  //style "currency" pour un affichage en fonction de la devise 
+  //currency "EUR"qui affichera le code ISO de la devise
+  //minimumFractionDigits nombre minimal de chiffres à utiliser pour la partie entière
+  price = Intl.NumberFormat("fr-FR", {
+      style: "currency",
+      currency: "EUR",
+      minimumFractionDigits: 2,
+  }).format(price / 100)
+  return price
 }
-
-
-function sendCart(order, panier) {
-    const requestOptions = {
-      method: 'POST',
-      body: JSON.stringify(order),
-      headers: { 'Content-Type': 'application/json',},
-    }
-    fetch(`http://localhost:3000/api/cameras/order`, requestOptions)
-        .then((response) => response.json())
-        .then((validatedProducts) => {      
-          console.log(validatedProducts)
-          sessionStorage.setItem('panier',JSON.stringify(validatedProducts))
-          console.log('panier.orderId',validatedProducts.orderId)
-          
-         document.location.href = "confirm.html?orderId=${validatedProducts.orderId}"
-        })
-        .catch((error) => {
-          alert( "La connexion au serveur n'a pas pu être effectué.")
-        })
-  }

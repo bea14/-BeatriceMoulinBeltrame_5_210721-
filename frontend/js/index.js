@@ -12,7 +12,7 @@ async function getProducts() {
   .then((httpBodyResponse) => httpBodyResponse.json())
   .then((products) => products)
   .catch((error) => {
-    alert( "La connexion au serveur n'a pas pu être effectué.")
+    alert('Il y a eu un problème avec l\'opération fetch: ' + error.message)
       })
 }
 

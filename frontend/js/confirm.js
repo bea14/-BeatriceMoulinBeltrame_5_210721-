@@ -58,20 +58,16 @@ function totalPrice() {
       <td colspan="2" id="totalPriceP"  class="bg-white font-weight-bold">${convertPrice(totalBasket)}</th>
   </tr>`
 }
+totalPrice()
 
 //Nettoyage storage
-/*function clearStorage() {
+function clearStorage() {
     localStorage.clear()
     sessionStorage.clear()
 }
-*/
 
 //retour à la page d'accueil de la boutique
 document.getElementById('btnIndex').addEventListener('click', () => {
     window.location.href = `index.html`
-    //clearStorage()
+    clearStorage()
 })
-
-
-totalPrice()
-//clearStorage()

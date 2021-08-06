@@ -786,10 +786,6 @@ header .login a img {
   border: none;
 }
 
-.breadcrumb-item.active {
-  color: #242D35;
-}
-
 .cart-title {
   font-family: "Sniglet", cursive;
 }
@@ -801,6 +797,11 @@ header .login a img {
 #productsList td {
   width: 14%;
   vertical-align: middle;
+}
+
+.main {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
 }
 
 blockquote .author {
@@ -848,8 +849,29 @@ blockquote::after {
   font-family: "Sniglet", cursive;
 }
 
+.breadcrumb-item.active {
+  color: #242D35;
+}
+
+#main-product {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .productcard {
   max-width: 1000px;
+  width: 100%;
   padding: 1rem;
   background-color: #aed6ad;
   color: #000000;
@@ -900,12 +922,4 @@ blockquote::after {
 .login-title {
   font-size: 1.75em;
   font-family: "Sniglet", cursive;
-}
-
-#resumeCommande tr td {
-  width: 14%;
-}
-
-#tableConfirm thead th {
-  width: 14%;
 }

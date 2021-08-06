@@ -100,16 +100,13 @@ header .cart a img {
 header .login {
     position: absolute;
     right: 90px;
-    top: 20px
+    top: 20px;    
+    background-color: transparent;
 }
 
 header .login a {
     color: $white;
     text-decoration: none;
-}
-
-header .login {
-    background-color: transparent;
 }
 
 header .login a img {

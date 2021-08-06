@@ -4,7 +4,6 @@
   displayPage(products)
 })()
 
-
 //récupération de tous les products au format json
 async function getProducts() {
   url = `${baseUrl}/`+ getCategory()
@@ -13,7 +12,7 @@ async function getProducts() {
   .then((products) => products)
   .catch((error) => {
     alert('Il y a eu un problème avec l\'opération fetch: ' + error.message)
-      })
+  })
 }
 
 function displayPage(products) {
@@ -40,5 +39,3 @@ function displayProduct(product) {
   // Display template
   document.getElementById('cards').appendChild(cloneElt)
 }
-
-updateNavBar()

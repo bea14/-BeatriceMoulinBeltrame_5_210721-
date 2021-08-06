@@ -5,7 +5,7 @@
   displayPage(productData)
   displayOptions(productData)
   addPanier(productData)
-  //addFavorites(productData)
+  addFavorites(productData)
 })()
 
 function getProductId() {

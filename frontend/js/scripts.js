@@ -30,7 +30,7 @@ displayCategories()
 //Barre de recherche
 function searchBar() {
     // Script Bootstrap pour validation manuelle
-    // car le formulaire n'est pas vbalidé (novalidate)
+    // car le formulaire n'est pas validé (novalidate)
     var forms = document.getElementsByClassName('avec-validation')
     var validation = Array.prototype.filter.call(forms, function(form) {
         // Soumettre
@@ -54,7 +54,6 @@ function searchBar() {
 }
 searchBar()
   
-
 //Fonctions
 function getProducts(){
     return JSON.parse(localStorage.getItem('shoppingCart'))
@@ -79,7 +78,7 @@ function updateNavBar(){
       navbarBadge.style.display = "none"
   }
   else {
-    let count = 0;
+    let count = 0
     for(let i = 0; i < cart.length; i++){          
       count += parseInt(cart[i].quantity)
     }

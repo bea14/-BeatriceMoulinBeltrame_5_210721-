@@ -14,9 +14,10 @@ blockquote::after {
 }
 
 .about {
-  background-color: $white;
+  background-color: $primary-color;  
   border-radius: $radius-large;
-  h2 {
+  border: 4px solid $tertiary-color;
+    h2 {
     font-family: $title-font;
   font-weight: $weight-bold;
   text-transform: uppercase;
